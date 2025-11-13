@@ -1,56 +1,58 @@
 # Monitoring Professional Performance
 
-## Getting Started
+## Começando
 
-To run this application:
+Para executar esta aplicação:
 
 ```bash
 npm install
 npm run start:dev
 ```
 
-## Building For Production
+## Build para Produção
 
-To build this application for production:
+Para fazer o build desta aplicação para produção:
 
 ```bash
 npm run start:prod
 ```
 
-## Running in Production with Docker
+## Executando em Produção com Docker
 
-To run this application in production with Docker:
+Para executar esta aplicação em produção com Docker:
 
-> production
+> produção
 ```bash
 docker-compose -f docker-compose.prod.yml up -d --build client
 ```
 
-> development (with hot reload)
+> desenvolvimento (com hot reload)
 ```bash
 docker-compose -f docker-compose.dev.yml up -d --build client
 ```
 
-## Testing
+## Testes
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+Este projeto usa [Vitest](https://vitest.dev/) para testes. Você pode executar os testes com:
 
 ```bash
 npm run test
 ```
 
-## Styling
+## Estilização
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+Este projeto usa [Tailwind CSS](https://tailwindcss.com/) para estilização.
 
+## Linting e Formatação
 
-## Linting & Formatting
-
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
-
+Este projeto usa [Biome](https://biomejs.dev/) para linting e formatação. Os seguintes scripts estão disponíveis:
 
 ```bash
 npm run lint
 npm run format
 npm run check
 ```
+
+## Estrutura do Projeto
+
+Para informações detalhadas sobre a estrutura e organização do projeto, consulte [PROJECT_STRUCTURE.md](./docs/PROJECT_STRUCTURE.md).
