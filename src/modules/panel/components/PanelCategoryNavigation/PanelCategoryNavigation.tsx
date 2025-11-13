@@ -45,11 +45,11 @@ export const PanelCategoryNavigation = ({
 	return (
 		<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
 			{categoriesArray?.map((cat) => {
-				const completed = cat.tasks.filter(
+				const completed = cat?.tasks.filter(
 					(t) => t.status === "completed",
 				).length;
 
-				const total = cat.tasks.length;
+				const total = cat?.tasks.length;
 				const isSelected = cat.id === isActivePathname;
 				const Icon = cat.icon;
 				return (
