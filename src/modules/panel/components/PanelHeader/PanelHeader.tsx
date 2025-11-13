@@ -1,8 +1,8 @@
 type PanelHeaderProps = {
-	calculateOverallProgress: () => number;
+	overallProgress: number;
 };
 
-export const PanelHeader = ({ calculateOverallProgress }: PanelHeaderProps) => {
+export const PanelHeader = ({ overallProgress }: PanelHeaderProps) => {
 	return (
 		<header className="bg-primary shadow-sm border-b border-(--color-border-gray-300)">
 			<div className="max-w-7xl mx-auto px-4 py-6">
@@ -30,13 +30,13 @@ export const PanelHeader = ({ calculateOverallProgress }: PanelHeaderProps) => {
 							Progresso Geral
 						</span>
 						<span className="text-sm font-bold text-(--color-category-blue)">
-							{calculateOverallProgress()}%
+							{overallProgress}%
 						</span>
 					</div>
 					<div className="w-full bg-(--color-bg-gray-200) rounded-full h-3">
 						<div
 							className="bg-(--color-category-blue) h-3 rounded-full transition-all duration-500"
-							style={{ width: `${calculateOverallProgress()}%` }}
+							style={{ width: `${overallProgress}%` }}
 						/>
 					</div>
 					{[

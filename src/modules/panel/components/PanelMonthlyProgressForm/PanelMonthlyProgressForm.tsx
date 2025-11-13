@@ -1,7 +1,8 @@
+import debounce from "lodash.debounce";
 import { FileText } from "lucide-react";
 import type { MonthProgress } from "@/modules/panel/types";
 
-type PanelMonthlyProgressPageProps = {
+type PanelMonthlyProgressFormProps = {
 	monthProgressData: MonthProgress[];
 	onUpdateMonthProgress: (
 		month: string,
@@ -10,13 +11,12 @@ type PanelMonthlyProgressPageProps = {
 	) => void;
 };
 
-export const PanelMonthlyProgressPage = ({
+export const PanelMonthlyProgressForm = ({
 	monthProgressData,
 	onUpdateMonthProgress,
-}: PanelMonthlyProgressPageProps) => {
+}: PanelMonthlyProgressFormProps) => {
 	const inputClass =
 		"w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-(--color-primary-dark) focus:border-transparent";
-
 	return (
 		<div className="bg-primary rounded-lg shadow-sm border border-(--color-bg-gray-200)">
 			<div className="p-6 border-b border-(--color-bg-gray-200)">
@@ -46,14 +46,8 @@ export const PanelMonthlyProgressPage = ({
 									type="number"
 									min="0"
 									max="100"
+									readOnly
 									value={month.progress}
-									onChange={(e) =>
-										onUpdateMonthProgress(
-											month.month,
-											"progress",
-											parseInt(e.target.value) || 0,
-										)
-									}
 									className="w-20 px-3 py-2 border border-(--color-bg-gray-200) rounded-md text-right font-bold text-(--color-primary-dark)"
 								/>
 								<span className="text-sm text-(--color-text-gray-600) ml-1">
@@ -70,10 +64,10 @@ export const PanelMonthlyProgressPage = ({
 						</div>
 
 						<textarea
-							value={month.notes}
-							onChange={(e) =>
-								onUpdateMonthProgress(month.month, "notes", e.target.value)
-							}
+							defaultValue={month.notes}
+							onChange={debounce((e) => {
+								onUpdateMonthProgress(month.month, "notes", e.target.value);
+							}, 500)}
 							placeholder="Aprendizados / Reflexões..."
 							className={inputClass}
 							rows={3}
