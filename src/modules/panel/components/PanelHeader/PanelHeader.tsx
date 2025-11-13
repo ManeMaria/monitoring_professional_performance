@@ -39,14 +39,25 @@ export const PanelHeader = ({ calculateOverallProgress }: PanelHeaderProps) => {
 							style={{ width: `${calculateOverallProgress()}%` }}
 						/>
 					</div>
-					<p className="text-xs text-(--color-text-gray-600) mt-2">
-						<strong>Objetivo:</strong> Consolidar performance fullstack e
-						evoluir rumo ao Pleno
-					</p>
-					<p className="text-xs text-(--color-text-gray-600) mt-1">
-						<strong>Foco técnico:</strong> Testes automatizados (unit,
-						integração, e2e com Vitest e Playwright)
-					</p>
+					{[
+						{
+							title: "Objetivo",
+							description:
+								"Consolidar performance fullstack e evoluir rumo ao Pleno",
+						},
+						{
+							title: "Foco técnico",
+							description:
+								"Testes automatizados (unit, integração, e2e com Vitest e Playwright)",
+						},
+					].map((item) => (
+						<p
+							key={item.title}
+							className="text-xs text-(--color-text-gray-600) mt-2"
+						>
+							<strong>{item.title}:</strong> {item.description}
+						</p>
+					))}
 				</div>
 			</div>
 		</header>
