@@ -56,3 +56,7 @@ npm run check
 ## Estrutura do Projeto
 
 Para informações detalhadas sobre a estrutura e organização do projeto, consulte [PROJECT_STRUCTURE.md](./docs/PROJECT_STRUCTURE.md).
+
+## Próximos Passos
+
+Para ver a lista de melhorias e funcionalidades planejadas, consulte [next-steps.md](./docs/next-steps.md).
