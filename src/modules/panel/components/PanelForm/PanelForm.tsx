@@ -2,6 +2,7 @@ import debounce from "lodash.debounce";
 import { Calendar } from "lucide-react";
 import { useFormChange } from "@/modules/panel/hooks";
 import type { Category, Task } from "@/modules/panel/types";
+import { formatDateToBrazilianLocale } from "@/shared/utils";
 
 type PanelFormProps = {
 	category: Category;
@@ -79,7 +80,7 @@ export const PanelForm = (props: PanelFormProps) => {
 										{getPriorityBadge(task.priority)}
 										<div className="flex items-center text-sm text-gray-600">
 											<Calendar className="w-4 h-4 mr-1" />
-											{task.deadline}
+											{formatDateToBrazilianLocale(task.deadline)}
 										</div>
 									</div>
 								</div>
