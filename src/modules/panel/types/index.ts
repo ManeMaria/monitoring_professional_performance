@@ -25,4 +25,13 @@ export type MonthProgress = {
 	focus: string;
 	progress: number;
 	notes: string;
+	date: string;
 };
+
+export type CategoriesNames =
+	| "commitment"
+	| "delivery"
+	| "ownership"
+	| "impact"
+	| "quality"
+	| "communication";
