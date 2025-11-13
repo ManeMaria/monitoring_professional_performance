@@ -13,20 +13,21 @@ import { useTasksData } from "@/modules/panel/stories";
 export const PanelPage = () => {
 	const { commitment, delivery, ownership, impact, quality, communication } =
 		useTasksData();
+	const categories = {
+		commitment,
+		delivery,
+		ownership,
+		impact,
+		quality,
+		communication,
+	};
 
 	const {
 		updateMonthProgressObservation,
 		monthProgress,
 		monthProgressOverall,
 	} = useMonthlyDataLocalStorage({
-		categories: {
-			commitment,
-			delivery,
-			ownership,
-			impact,
-			quality,
-			communication,
-		},
+		categories,
 	});
 
 	//TODO: criar loading com skeleton suspense
@@ -44,7 +45,7 @@ export const PanelPage = () => {
 			<PanelHeader overallProgress={monthProgressOverall} />
 			<div className="max-w-7xl mx-auto px-4 py-8">
 				{/* Category Navigation */}
-				<PanelCategoryNavigation categories={initialCategories} />
+				<PanelCategoryNavigation categories={categories} />
 				<Outlet />
 				{/* Monthly Progress */}
 				<PanelMonthlyProgressForm
