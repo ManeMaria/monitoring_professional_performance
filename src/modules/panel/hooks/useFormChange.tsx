@@ -22,8 +22,6 @@ const classes = {
 const labels = { high: "Alta", medium: "Média", low: "Baixa" };
 
 export const useFormChange = ({ tasks, onChange }: useFormChangeProps) => {
-console.log("🚀 ~ useFormChange ~ tasks:", tasks)
-
 	const handleChange = (
 		taskId: string,
 		task: {
