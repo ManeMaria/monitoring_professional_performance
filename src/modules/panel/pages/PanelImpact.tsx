@@ -1,8 +1,7 @@
 import { PanelForm } from "@/modules/panel/components";
-import { useDataLocalStorage } from "@/modules/panel/hooks";
+import { useTasksDataLocalStorage } from "@/modules/panel/hooks";
 
 export const PanelImpactPage = () => {
-	const { impact, setImpactTasks } = useDataLocalStorage();
-
+	const { impact, setImpactTasks } = useTasksDataLocalStorage();
 	return <PanelForm category={impact} onChange={setImpactTasks} />;
 };

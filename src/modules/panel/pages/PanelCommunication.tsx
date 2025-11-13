@@ -1,10 +1,7 @@
 import { PanelForm } from "@/modules/panel/components";
-import { useDataLocalStorage } from "@/modules/panel/hooks";
+import { useTasksDataLocalStorage } from "@/modules/panel/hooks";
 
 export const PanelCommunicationPage = () => {
-	const { communication, setCommunicationTasks } = useDataLocalStorage();
-
-	return (
-		<PanelForm category={communication} onChange={setCommunicationTasks} />
-	);
+	const { communication, setCommunicationTasks } = useTasksDataLocalStorage();
+	return <PanelForm category={communication} onChange={setCommunicationTasks} />;
 };

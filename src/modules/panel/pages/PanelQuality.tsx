@@ -1,8 +1,7 @@
 import { PanelForm } from "@/modules/panel/components";
-import { useDataLocalStorage } from "@/modules/panel/hooks";
+import { useTasksDataLocalStorage } from "@/modules/panel/hooks";
 
 export const PanelQualityPage = () => {
-	const { quality, setQualityTasks } = useDataLocalStorage();
-
+	const { quality, setQualityTasks } = useTasksDataLocalStorage();
 	return <PanelForm category={quality} onChange={setQualityTasks} />;
 };

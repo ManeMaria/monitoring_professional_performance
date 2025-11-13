@@ -1,5 +1,4 @@
 import { AlertCircle, CheckCircle, Circle } from "lucide-react";
-import { useEffect, useState } from "react";
 import type { Priority, Status, Task } from "@/modules/panel/types";
 
 type useFormChangeProps = {
@@ -23,7 +22,7 @@ const classes = {
 const labels = { high: "Alta", medium: "Média", low: "Baixa" };
 
 export const useFormChange = ({ tasks, onChange }: useFormChangeProps) => {
-	const [formData, setFormData] = useState<Task[]>(tasks);
+console.log("🚀 ~ useFormChange ~ tasks:", tasks)
 
 	const handleChange = (
 		taskId: string,
@@ -33,10 +32,10 @@ export const useFormChange = ({ tasks, onChange }: useFormChangeProps) => {
 			feedback?: string;
 		},
 	) => {
-		const newFormData = formData.map((taskData) =>
+		const newFormData = tasks.map((taskData) =>
 			taskData.id === taskId ? { ...taskData, ...task } : taskData,
 		);
-		setFormData(newFormData);
+		onChange(newFormData);
 	};
 
 	const handleChangeEvidence = (taskId: string, evidence: string) => {
@@ -65,15 +64,13 @@ export const useFormChange = ({ tasks, onChange }: useFormChangeProps) => {
 			in_progress: <AlertCircle className="w-5 h-5 text-warning" />,
 			review: <AlertCircle className="w-5 h-5 text-info" />,
 		};
-		return statusObject[status] || <Circle className="w-5 h-5 text-gray-400" />;
+		return (
+			statusObject?.[status] || <Circle className="w-5 h-5 text-gray-400" />
+		);
 	};
 
-	useEffect(() => {
-		onChange(formData);
-	}, [formData, onChange]);
-
 	return {
-		formData,
+		formData: tasks,
 		handleChangeEvidence,
 		handleChangeFeedback,
 		handleChangeStatus,

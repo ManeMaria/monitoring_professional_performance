@@ -1,8 +1,7 @@
 import { PanelForm } from "@/modules/panel/components";
-import { useDataLocalStorage } from "@/modules/panel/hooks";
+import { useTasksDataLocalStorage } from "@/modules/panel/hooks";
 
 export const PanelOwnershipPage = () => {
-	const { ownership, setOwnershipTasks } = useDataLocalStorage();
-
+	const { ownership, setOwnershipTasks } = useTasksDataLocalStorage();
 	return <PanelForm category={ownership} onChange={setOwnershipTasks} />;
 };

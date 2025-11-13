@@ -1,8 +1,8 @@
 import { PanelForm } from "@/modules/panel/components";
-import { useDataLocalStorage } from "@/modules/panel/hooks";
+import { useTasksDataLocalStorage } from "@/modules/panel/hooks";
 
 export const PanelCommitmentPage = () => {
-	const { commitment, setCommitmentTasks } = useDataLocalStorage();
+	const { commitment, setCommitmentTasks } = useTasksDataLocalStorage();
 
 	return <PanelForm category={commitment} onChange={setCommitmentTasks} />;
 };
