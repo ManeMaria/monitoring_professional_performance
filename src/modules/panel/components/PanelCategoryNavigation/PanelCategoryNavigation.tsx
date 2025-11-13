@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { cn } from "@/lib/cn";
 import type { Category } from "@/modules/panel/types";
+import { cn } from "@/shared/libs";
 
 type PanelCategoryNavigationProps = {
 	categories: Record<string, Category>;
